@@ -23,5 +23,11 @@ public class Player {
     }
 
     // TODO 추가 기능 구현
-    public
+    public boolean canDraw() {
+        int totalScore = 0;
+        for (Card card : cards) {
+            totalScore += card.getScore();
+        }
+        return (totalScore <= 16);
+    }
 }
