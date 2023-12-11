@@ -1,9 +1,11 @@
 package domain.user;
 
 import domain.card.Card;
+import domain.card.TotalScore;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 게임 참여자를 의미하는 객체
@@ -24,10 +26,13 @@ public class Player {
 
     // TODO 추가 기능 구현
     public boolean canDraw() {
-        int totalScore = 0;
-        for (Card card : cards) {
-            totalScore += card.getScore();
-        }
-        return (totalScore <= 16);
+        TotalScore totalScore = new TotalScore(cards);
+        return (totalScore.getWorstTotal() <= 16);
+    }
+
+    public List<String> getCardNames() {
+        return cards.stream()
+                .map(Card::toString)
+                .collect(Collectors.toList());
     }
 }
