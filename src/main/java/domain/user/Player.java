@@ -26,8 +26,7 @@ public class Player {
 
     // TODO 추가 기능 구현
     public boolean canDraw() {
-        TotalScore totalScore = new TotalScore(cards);
-        return (totalScore.getWorstTotal() <= 16);
+        return (TotalScore.getWorstTotal(cards) <= 16);
     }
 
     public List<String> getCardNames() {

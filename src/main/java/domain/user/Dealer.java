@@ -1,6 +1,7 @@
 package domain.user;
 
 import domain.card.Card;
+import domain.card.TotalScore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,5 +25,9 @@ public class Dealer {
         return cards.stream()
                 .map(Card::toString)
                 .collect(Collectors.toList());
+    }
+
+    public void getMoreCard() {
+        while (new TotalScore(cards))
     }
 }
